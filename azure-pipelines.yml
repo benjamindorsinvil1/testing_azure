@@ -12,6 +12,10 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: CopyFiles
+  inputs:
+    Contents: '$input_file/**' 
+    TargetFolder: '$output_file/'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
