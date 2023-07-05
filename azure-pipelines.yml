@@ -13,9 +13,11 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 - task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    Contents: '$input_file/**' 
-    TargetFolder: '$output_file/'
+    Contents: |
+      input_file/**
+    TargetFolder: $(Build.ArtifactStagingDirectory)
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
